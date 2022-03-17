@@ -8,10 +8,9 @@ namespace LinkedList
 {
     class LinkedList
     {
-        public Node head;
-        
-        //method for add element       
-        public void Add(int data)
+        internal Node head;
+        //method for add element
+        internal void Add(int data)
         {
             //creating a node with given data
             Node node = new Node(data);
@@ -32,8 +31,26 @@ namespace LinkedList
             //print and inserted into the linked list
             Console.WriteLine("{0} inserted into the linked list", node.data);
         }
+        //method for Seconf Linkedlist
+        internal void Add2(int data)
+        {
+            //creating a node with given data
+            Node node = new Node(data);
+            //if head is null means the list is empty
+            //the first  node is head
+            if (this.head == null)
+                this.head = node;
+            else
+            {
+                //esle add the element to the end
+                node.next = head;
+                this.head = node;
+            }
+            //print
+            Console.WriteLine("{0} inserted into the linked list", node.data);
+        }
         // for display
-        public void Display()
+        internal void Display()
         {
             Node temp = this.head;
             //if head is null means the list is empty

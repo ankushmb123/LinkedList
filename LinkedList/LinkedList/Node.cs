@@ -13,9 +13,9 @@ namespace LinkedList
         // Node next
         public Node next;
         //Constructor to initilize data variables
-                public Node(int data)
+        public Node(int data)
         {
             this.data = data;
-        }// end:: public  Node(int data)
-    } //    public class Node
+        }
+    }
 }
