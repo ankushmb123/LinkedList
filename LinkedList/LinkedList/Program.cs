@@ -15,8 +15,10 @@ namespace LinkedList
             linkedlist.Add(30);
             linkedlist.Add(70);
             linkedlist.Display();
-            int search = linkedlist.Search(30);
-            Console.WriteLine("The searched data is at position {0}", search);
+            int position = linkedlist.Search(30);
+            position++;
+            linkedlist.InsertAtParticularPosition(position, 40);
+            linkedlist.Display();
         }
     }
 }
