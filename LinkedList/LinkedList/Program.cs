@@ -10,20 +10,12 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            LinkedList list = new LinkedList();
-            // Adding elements in the LinkedList
-            // Using Add() method
-            list.Add(56);
-            list.Add(30);
-            list.Add(70);
-            list.Display();
-            //for send UC2
-            list = new LinkedList();
-            list.Add2(70);
-            list.Add2(30);
-            list.Add2(56);
-            list.Display();
-            Console.ReadLine();
+            LinkedList linkedlist = new LinkedList();
+            linkedlist.Add(56);
+            linkedlist.Add(30);
+            linkedlist.Add(70);
+            linkedlist.RemoveFirstNode();
+            linkedlist.Display();
         }
     }
 }

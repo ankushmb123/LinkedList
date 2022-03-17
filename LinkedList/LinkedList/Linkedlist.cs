@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    class LinkedList
+   public class LinkedList
     {
-        public Node head;
-        //method for add element
-
-        public void Add(int data)
+        internal Node head;
+        internal void Add(int data)
         {
-            //creating a node with given data
             Node node = new Node(data);
-            //if head is null means the list is empty
-            ////the first  node is head
             if (this.head == null)
+            {
                 this.head = node;
+            }
             else
             {
-                //esle add the element to the end
                 Node temp = head;
                 while (temp.next != null)
                 {
@@ -29,48 +25,73 @@ namespace LinkedList
                 }
                 temp.next = node;
             }
-            //print and inserted into the linked list
-            Console.WriteLine("{0} inserted into the linked list", node.data);
+            Console.Write("\n {0} inserted into linked list", node.data);
         }
-        //UC2
-        //method for Seconf Linkedlist
-        public void Add2(int data)
+        public void AddinreverseOrder(int data)
         {
-            //creating a node with given data
-            Node node = new Node(data);
-            //if head is null means the list is empty
-            ////the first  node is head
+            Node newNode = new Node(data);
             if (this.head == null)
-                this.head = node;
+            {
+                this.head = newNode;
+            }
             else
             {
-                //esle add the element to the end
-                node.next = head;
-                this.head = node;
+                Node temp = this.head;
+                head = newNode;
+                head.next = temp;
             }
-            //print
-            Console.WriteLine("{0} inserted into the linked list", node.data);
+            Console.Write("\n {0} inserted into linked list", newNode.data);
         }
-        // for display
-        public void Display()
+        internal void Display()
         {
+            Console.Write("\n Data of linked list : ");
             Node temp = this.head;
-            ////if head is null means the list is empty
             if (temp == null)
             {
-                //print linked list is empty
                 Console.WriteLine("Linked list is empty");
                 return;
             }
-            //UC3
-            Console.WriteLine("Sequence of LinkedList :-");
-            // traverse and print data from head to last
+
             while (temp != null)
             {
                 Console.Write(temp.data + " ");
                 temp = temp.next;
             }
-            Console.WriteLine();
+        }
+        internal Node InsertAtParticularPosition(int position, int data)
+        {
+            Node newestNode = new Node(data);
+            if (this.head == null)
+            {
+                return newestNode;
+            }
+            if (position == 0)
+            {
+                newestNode.next = this.head;
+                this.head = newestNode;
+                return this.head;
+            }
+            Node prev = null;
+            Node current = this.head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            newestNode.next = prev.next;
+            prev.next = newestNode;
+            return this.head;
+        }
+        internal Node RemoveFirstNode()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            return this.head;
         }
     }
 }
