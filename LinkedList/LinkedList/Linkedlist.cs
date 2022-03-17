@@ -8,8 +8,8 @@ namespace LinkedList
 {
    public class LinkedList
     {
-        public Node head;
-        public void Add(int data)
+        internal Node head;
+        internal void Add(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
@@ -42,7 +42,7 @@ namespace LinkedList
             }
             Console.Write("\n {0} inserted into linked list", newNode.data);
         }
-        public void Display()
+        internal void Display()
         {
             Console.Write("\n Data of linked list : ");
             Node temp = this.head;
@@ -58,7 +58,7 @@ namespace LinkedList
                 temp = temp.next;
             }
         }
-        public Node InsertAtParticularPosition(int position, int data)
+        internal Node InsertAtParticularPosition(int position, int data)
         {
             Node newestNode = new Node(data);
             if (this.head == null)
@@ -84,7 +84,7 @@ namespace LinkedList
             prev.next = newestNode;
             return this.head;
         }
-        public Node RemoveFirstNode()
+        internal Node RemoveFirstNode()
         {
             if (this.head == null)
             {
@@ -93,7 +93,7 @@ namespace LinkedList
             this.head = this.head.next;
             return this.head;
         }
-        public Node RemoveLastNode()
+        internal Node RemoveLastNode()
         {
             if (head == null)
             {
@@ -111,5 +111,22 @@ namespace LinkedList
             NewNode.next = null;
             return head;
         }
+        internal int Search(int value)
+        {
+            Node node = this.head;
+            int count = 0;
+            while (node != null)
+            {
+
+                if (node.data == value)
+                {
+                    return count;
+                }
+                node = node.next;
+                count++;
+            }
+            return count;
+        }
+
     }
 }
